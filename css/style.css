@@ -18,7 +18,8 @@ body {
   }
 
   .icon {
-    padding: 10px;
+    font-size: large;
+    padding: 20px;
     background: dodgerblue;
     color: white;
     min-width: 50px;
@@ -26,7 +27,7 @@ body {
   }
 
   .input-field {
-    width:50%;
+    width:70%;
     padding: 10px;
     outline: none;
   }
@@ -37,7 +38,8 @@ body {
 
   /* Set a style for the submit button */
   .btn {
-    background-color: dodgerblue;
+
+    background: rgb(11, 94, 215);
     color: white;
     padding: 15px 20px;
     border: none;
@@ -47,6 +49,7 @@ body {
   }
 
   .btn:hover {
+    color: black;
     opacity: 1;
   }
 input {
@@ -63,4 +66,5 @@ p {
  body{
     font-size:large;
 }
+
 

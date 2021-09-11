@@ -3,6 +3,7 @@ function signup() {
   let name = document.getElementById("name").value;
   let email = document.getElementById("email").value;
   let password = document.getElementById("password").value;
+  if(password.length >= 5){
   localStorage.setItem(
     email,
     JSON.stringify({
@@ -11,9 +12,12 @@ function signup() {
       Spassword: password,
     })
   );
-
+}else{
+  alert("The password must be at least 6 character");
+  return true
+}
   if (name == "" || email == "" || password == "") {
-    alert("please fill required feild");
+    alert("please fill all required fields");
   } else {
     location.href = "../index.html";
   }
@@ -26,7 +30,7 @@ function login() {
   let Lpassword = document.getElementById("Lpassword").value;
   //fill req field condition
   if (Lemail == "" || Lpassword == "") {
-    alert("please fill all required feild");
+    alert("please fill all required field");
   } else {
     let getdata = localStorage.getItem(Lemail);
     if (getdata == null) {
@@ -55,7 +59,8 @@ function login() {
 
 //LOGOUT FUNCTION
 function logout() {
-  location.href = "../index.html";
+  location.href = "../index.html"; 
+  localStorage.removeItem("Loginuser")
 }
 
 //HOME PAGE CREATE TEAM
@@ -86,7 +91,8 @@ function showmore() {
  let TmemeberEmail3 = document.getElementById("TmemeberEmail3").value;
   
   if (Tname == "" || TmemeberEmail1 == "" || AdminEmail == "") {
-    alert("please fill required feild");
+    
+    alert("please fill required fields");
   } else {
     //set data in local storage;
     localStorage.setItem(
@@ -99,7 +105,7 @@ function showmore() {
         MemeberEmail3: TmemeberEmail3,
       }));
   }
-  //clear input filled
+  //clear input feild
   document.getElementById("Tname").value = "";
   document.getElementById("TmemeberEmail1").value = "";
   document.getElementById("TmemeberEmail2").value= "";
@@ -107,5 +113,5 @@ function showmore() {
   document.getElementById("Adminemail").value="";
   location.reload();
   return false;
-
+ 
 }

@@ -11,21 +11,13 @@
 
 <style>
   body {
+    /* font-size: large; */
     font-family: Arial, Helvetica, sans-serif;
     margin-bottom: 35%;
     /* color: rgb(87, 87, 14); */
   }
 
-  input {
-    width: 50%;
-    border-top-style: hidden;
-    border-right-style: hidden;
-    border-left-style: hidden;
-    border-bottom-style: groove;
-    background-color: rgb(255, 255, 255);
-    padding: 25px 10px 10px 0px;
-    margin-left: 15px;
-  }
+ 
 </style>
 </head>
 <body>
@@ -59,7 +51,7 @@
   <!-- footer -->
   <footer>
     <p>Designed by M.Areeb<br>
-      <a href="#">m.areebkhan125@gmail.com</a>
+      <a href="#" id="em">m.areebkhan125@gmail.com</a>
     </p>
   </footer>
   <script>
@@ -92,6 +84,7 @@
         const q3 = val12.q3;
         const q4 = val12.q4;
         const q5 = val12.q5;
+
         //login user or member email matching
         let loginperson = localStorage.getItem("Loginuser");
         let loginpersonVal = JSON.parse(loginperson);
@@ -101,36 +94,33 @@
         allDataKeys = Object.keys(localStorage);
         allDataKeys.map((key) => {
           var valans = JSON.parse(localStorage.getItem(key));
-          if (valans.hasOwnProperty("Studentname")) {
-            if (val12.user === a) {
-
-              let Sname = valans.Studentname
+          if (!valans.hasOwnProperty("Sname") && !valans.hasOwnProperty("person1")&& !valans.hasOwnProperty("MemeberEmail1")) {
+            if (val12.user === a)  {
+              let StudentName = valans.Studentname
               let a1 = valans.firstAns
               let a2 = valans.secondAns
               let a3 = valans.thirdAns
-              if (q1 == undefined || q2 == undefined || q3 == undefined) {
-                // let a1="no ans yet" 
-                // let a2="no ans yet"
-                // let a3="no ans yet"
-                // console.log("error")
 
-              } else {
+             
+              if (val12.hasOwnProperty("q1")) {
+                if (valans.hasOwnProperty("firstAns") ) {
+                // console.log("error")
                 let div = document.createElement("div");
                 div.style.marginTop = "10px";
-                // div.style.marginRight = "50px";
                 div.style.marginLeft = "50px";
                 div.style.marginBottom = "0%";
                 div.style.padding = "2px 0 40px 15px";
-                let ques1 = document.createElement("p")
-                ques1.style.padding = "20px 0 0px 15px"
-                ques1.innerHTML = (`Team Name:${teamname}<br><br>${Sname}:${date} ${n}<br/><br/>Q: ${q1}<br/>A: ${a1}<br/><br/> Q: ${q2}<br/>A: ${a2}<br/><br/> Q: ${q3}<br/>A:${a3}<br/>`)
-                div.appendChild(ques1)
+                let ques = document.createElement("H3")
+                ques.style.padding = "20px 0 0px 15px"
+                ques.innerHTML = (`Team Name:${teamname}<br><br>${StudentName }:${date} ${n}<br/><br/>Q: ${q1}<br/>A: ${a1}<br/><br/> Q: ${q2}<br/>A: ${a2}<br/><br/> Q: ${q3}<br/>A:${a3}<br/>`)
+                div.appendChild(ques)
                 document.body.appendChild(div)
               }
 
-            }
-
+            }}
           }
+
+          
         })
 
       })

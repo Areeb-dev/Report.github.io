@@ -10,13 +10,19 @@ body {
   color: black !important;
 }
 .nav-link:hover {
-  background: rgb(124, 130, 138) !important;
+  background: rgb(5, 67, 161) !important;
 }
 #logoutBtn {
+
   background: rgb(11, 94, 215);
   border: none;
   color: #fff;
   padding: 8px 20px 10px 20px;
+}
+#logoutBtn:hover {
+  /* background-color: white; */
+  opacity: 1;
+  color: #000;
 }
 #showmore{
   background: rgb(11, 94, 215);
@@ -44,6 +50,15 @@ body {
 #plusicon{
   color: rgb(11, 94, 215);
   font-size: 45px !important;
+}
+ /* animation on icon */ 
+ .btn-holder:hover #plusicon{
+  font-size: 60px !important;
+  color: black;
+  transition: 0.9s;
+  -webkit-transform: rotateZ(720deg);
+  -moz-transform: rotateZ(720deg);
+  transform: rotateZ(720deg);
 }
 /* modal css */
 input,
@@ -114,10 +129,13 @@ footer {
   width: 100%;
     
 }
-
-a:hover {
-  color: black !important;
+#em{
+color: white;
 }
+a:hover {
+  color: white !important;
+}
+/* icon css */
 #dlt-btn{
   border: none;
   margin: -10px 10px 0 0;
@@ -127,6 +145,18 @@ a:hover {
   background-color: white !important;
   font-size: 25px !important;
 }
+
+#dlt-btn:hover #dltIcon{
+  background-color: red !important;
+  border-radius: 10px;
+  font-size: 35px;
+  color: white !important;
+  transition: 0.7s;
+  -webkit-transform: rotateZ(720deg);
+  -moz-transform: rotateZ(720deg);
+  transform: rotateZ(720deg);
+}
+
 #setting-btn{
   border: none;
   margin: -10px 5px 0 0;
@@ -134,15 +164,33 @@ a:hover {
   background-color: white !important;
   font-size: 25px !important;
 }
-#dlt-btn:hover {
-  background-color: red !important;
-  color: white !important;
-}
-#setting-btn:hover {
+#setting-btn:hover #setIcon{ 
+  border-radius: 10px;
+  font-size: 35px;
   background-color: rgb(0, 119, 255) !important;
   color: white !important;
+  transition: 0.9s;
+  -webkit-transform: rotateZ(720deg);
+  -moz-transform: rotateZ(720deg);
+  transform: rotateZ(720deg);
 }
-
+#questionbutton{
+  border: none;
+  margin: -10px 5px 0 0;
+  color: black !important;
+  background-color: white !important;
+  font-size: 25px !important;
+}
+#questionbutton:hover #quesIcon{
+  border-radius: 10px;
+  font-size: 35px;
+  background-color: rgb(0, 119, 255) !important;
+  color: white !important;
+  transition: 0.9s;
+  -webkit-transform: rotateZ(720deg);
+  -moz-transform: rotateZ(720deg);
+  transform: rotateZ(720deg);
+}
 
 /* OVERVIEW PAGE CSS */
 #reports{

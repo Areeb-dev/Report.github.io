@@ -9,6 +9,15 @@
   <link rel="stylesheet" href="../css/bootstrap.css">
 
   <style>
+    .nav-link {
+      font-size: 16px;
+      color: black !important;
+    }
+
+    .nav-link:hover {
+      background: rgb(124, 130, 138) !important;
+    }
+
     input {
       width: 50% !important;
       border-top-style: hidden;
@@ -16,39 +25,53 @@
       border-left-style: hidden;
       border-bottom-style: groove;
       background-color: rgb(255, 255, 255);
-      padding: 25px 10px 20px 0px;
-      margin-left: 15px
+      padding: 50px 10px 20px 0px;
+      /* margin-left: 50px */
     }
 
     #setting {
-      margin: 40px 18px 100px 18px;
+      margin: 40px 18px 100px 80px;
       padding: 10px 50px 10px 50px;
     }
 
     #addMember,
     #SaveChanges {
-      background: rgb(11, 94, 215);
+      background: rgb(11, 94, 215) !important;
       border: none;
       color: #fff;
-      margin-top: 7px;
+      margin-top: 15px;
       margin-right: 2px;
       padding: 10px 20px 10px 20px;
     }
 
+    #SaveChanges:hover {
+      color: #000;
+    }
+
     #Cancel {
       background: #fff;
-      color: #000;
+      color: rgb(3, 3, 3);
       margin-top: 7px;
       margin-right: 2px;
-      padding: 10px 20px 10px 20px;
+      padding: 8px 20px 10px 20px;
     }
 
     #logoutBtn {
       background: rgb(11, 94, 215);
       border: none;
       color: #fff;
-      /* margin-top: 5px;
-        margin-right: 0px; */
+      padding: 8px 20px 10px 20px;
+    }
+
+    #logoutBtn:hover {
+      opacity: 1;
+      color: #000;
+    }
+
+    #deleteTeam {
+      background: rgb(251, 75, 5);
+      border: none;
+      color: #fff;
       padding: 8px 20px 10px 20px;
     }
 
@@ -95,7 +118,7 @@
     </li> -->
   </ul>
   <div id="setting">
-    <h4>Question's:</h4>
+    <h2>Question's:</h2>
     <form>
       <input type="text" id="team" class="Team" placeholder="Team Name" required>
       <div class="form-question">
@@ -110,19 +133,32 @@
 
       </div>
     </form>
-    <button type="button" id="SaveChanges" onclick="savechanges()">Save changes</button>
-    <button type="reset" id="Cancel" onclick="cancel()">Cancel</button>
+    <button type="button" id="SaveChanges" onclick="savechanges()"><b>Save changes</b></button>
+    <button type="reset" id="Cancel" onclick="cancel()"><b>Cancel</b></button><br><br>
+    <button type="button" id="deleteTeam" onclick="deleteTeam()"><b>Delete Team</b></button>
+
   </div>
 
 
   <!-- footer -->
   <footer>
     <p>Designed by M.Areeb<br>
-      <a href="#">m.areebkhan125@gmail.com</a>
+      <a href="#" id="em">m.areebkhan125@gmail.com</a>
     </p>
   </footer>
 
   <script>
+    function deleteTeam() {
+      allDataKeys = Object.keys(localStorage);
+      allDataKeys.map((key) => {
+        let val = JSON.parse(localStorage.getItem(key))
+        localStorage.removeItem(val.teamName);
+        
+
+      })
+      sessionStorage.clear()
+      location.href = "./home.html"
+    }
     let teamname;
     function savechanges() {
       let loginperson = localStorage.getItem("Loginuser")
@@ -136,7 +172,7 @@
 
       //store data in session storage
       if (question1 == "" || question2 == "" || question3 == "") {
-        alert("please fill all answer feild")
+        alert("please fill all answer field")
       } else {
         sessionStorage.setItem(teamname, JSON.stringify({
           user,
@@ -157,6 +193,7 @@
       document.getElementById("question1").value = ""
       document.getElementById("question2").value = ""
       document.getElementById("question3").value = ""
+      location.href = "./home.html"
     }
 
   </script>
